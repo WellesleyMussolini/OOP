@@ -2,8 +2,6 @@
 
 Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada a Objetos (POO)**. Aqui, explico de forma simples e intuitiva os principais conceitos da POO com exemplos práticos em **Java**, utilizando apenas **animais de estimação** como exemplo para facilitar o entendimento.
 
-## 📌 Conceitos Abordados
-
 # Classes e Objetos
 
 Em **POO** (Programação Orientada a Objetos), classes são modelos que definem as características (**estado**) e comportamentos (**métodos**) de um objeto. Os objetos por sua vez são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo definido pela classe.
@@ -71,9 +69,9 @@ Dessa forma, podemos entender claramente que os objetos têm um **estado** (valo
 
 
 ---
-### 2️⃣ Encapsulamento
+# Encapsulamento
 
-Em **POO** (Programação Orientada a Objetos), **encapsulamento** é um dos princípios fundamentais que protege os dados de um objeto, restringindo o acesso direto aos seus atributos e permitindo que sejam manipulados apenas através de métodos controlados.
+Em **POO** **encapsulamento** é um dos princípios fundamentais que protege os dados de um objeto, restringindo o acesso direto aos seus atributos e permitindo que sejam manipulados apenas através de métodos controlados.
 
 Isso ajuda a manter a integridade e segurança dos dados, evitando modificações indevidas.
 
