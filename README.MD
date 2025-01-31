@@ -4,30 +4,32 @@ Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada
 
 ## 📌 Conceitos Abordados
 
-Classes e Objetos
+# Classes e Objetos
 
-Em **POO** classes são modelos que definem as características e comportamentos de um objeto. Já os objetos são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo da classe.
+Em **POO** (Programação Orientada a Objetos), classes são modelos que definem as características (**estado**) e comportamentos (**comportamento**) de um objeto. Os objetos, por sua vez, são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo definido pela classe.
 
-Uma classe é uma estrutura que agrupa atributos (dados) e métodos (comportamentos) relacionados a um conceito.
-Um objeto é uma instância de uma classe, ou seja, uma ocorrência específica que possui os atributos e comportamentos definidos na classe.
+### O que são **estado** e **comportamento** de um objeto?
 
-Pense em uma classe como uma receita de bolo. A receita contém todas as instruções e ingredientes necessários para fazer um bolo, mas ela por si só não é um bolo real.
-Agora, quando você segue a receita e assa um bolo, você cria um objeto, que é um bolo real baseado nessa receita.
+- **Estado (State)**: Representa os atributos ou dados do objeto. São as informações que descrevem o objeto em um determinado momento.
+- **Comportamento (Behavior)**: Representa as ações ou métodos que o objeto pode executar, definindo como ele interage com outros objetos ou altera seu próprio estado.
 
-Outro exemplo: Imagine que temos uma classe **"Animal"**. Essa classe define que todo animal tem um nome e uma idade. Mas um animal específico, como um cachorro chamado **"Rex"**, seria um objeto dessa classe.
+### Analogias para facilitar o entendimento
 
-Se tivermos um segundo cachorro chamado **"Bolt"**, ele também seria um objeto da classe "Animal", com seu próprio nome e idade, mas ainda seguindo o mesmo modelo da classe.
+Pense em uma classe como uma **receita de bolo**. A receita contém todos os ingredientes e instruções necessárias para fazer um bolo, mas por si só não é um bolo real. Já o bolo pronto é um **objeto**, ou seja, uma instância concreta daquela receita.
 
-Resumindo a ideia principal de classes e objetos: a classe define o modelo e os objetos são as instâncias concretas desse modelo.
+Outro exemplo: Imagine uma classe **"Animal"**. Essa classe define que todo animal tem um **nome** e uma **idade** (estado) e pode realizar ações como **exibir suas informações** (comportamento).
 
-📌 Exemplo Técnico:
+Se tivermos um cachorro chamado **"Rex"**, ele seria um objeto da classe "Animal". Ele tem seu próprio nome e idade (estado) e pode realizar ações definidas na classe, como exibir suas informações (comportamento). Outro cachorro chamado **"Bolt"** seria outro objeto da mesma classe, mas com um estado diferente.
 
+### 📌 Exemplo Técnico:
+
+```java
 // Definição da classe Animal
 class Animal {
-    String nome;
-    int idade;
+    String nome; // Estado: nome do animal
+    int idade;  // Estado: idade do animal
 
-    // Método para exibir informações do animal
+    // Comportamento: método para exibir informações do animal
     void exibirInformacoes() {
         System.out.println("Nome: " + nome + ", Idade: " + idade + " anos");
     }
@@ -37,28 +39,35 @@ class Animal {
 public class Main {
     public static void main(String[] args) {
         // Criando um objeto da classe Animal
-        Animal pet = new Animal(); // Aqui criamos um objeto chamado "pet"
-        pet.nome = "Rex"; // Definimos o nome do pet
-        pet.idade = 3; // Definimos a idade do pet
+        Animal pet = new Animal(); // Instância da classe "Animal"
         
-        // Chamando o método para exibir as informações do animal
+        // Definindo o estado do objeto
+        pet.nome = "Rex";
+        pet.idade = 3;
+        
+        // Executando um comportamento do objeto
         pet.exibirInformacoes();
     }
 }
+```
 
-🔍 Explicação do Código:
+### 🔍 Explicação do Código:
 
-Criamos a classe Animal com atributos nome e idade.
+1. Criamos a classe `Animal` com dois atributos: `nome` e `idade` (**estado**).
+2. Definimos um método `exibirInformacoes()`, que exibe o nome e a idade do animal (**comportamento**).
+3. No método `main`, instanciamos um objeto `pet` da classe `Animal`.
+4. Atribuímos valores ao estado do objeto (`nome` e `idade`).
+5. Chamamos o comportamento `exibirInformacoes()`, que imprime os detalhes do animal.
 
-Criamos um método exibirInformacoes() que imprime os detalhes do animal.
+### 📌 Saída do Código:
 
-No método main, instanciamos um objeto pet da classe Animal, definimos seus atributos e chamamos o método para exibir suas informações.
-
-O objeto dessa classe é um pet chamado "Rex" com 3 anos de idade.
-
-📌 Saída do Código:
-
+```
 Nome: Rex, Idade: 3 anos
+```
+
+Dessa forma, podemos entender claramente que os objetos têm um **estado** (valores específicos dos atributos) e um **comportamento** (métodos que definem suas ações).
+
+
 
 
 ---
