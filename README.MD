@@ -73,54 +73,119 @@ Dessa forma, podemos entender claramente que os objetos têm um **estado** (valo
 ---
 ### 2️⃣ Encapsulamento
 
-O **encapsulamento** protege os dados internos de um objeto, restringindo o acesso direto e permitindo modificá-los apenas por meio de métodos específicos.
+Em **POO** (Programação Orientada a Objetos), **encapsulamento** é um dos princípios fundamentais que protege os dados de um objeto, restringindo o acesso direto aos seus atributos e permitindo que sejam manipulados apenas através de métodos controlados.
 
-📌 **Exemplo:** Imagine um **gato** cujo nome e idade só podem ser acessados ou alterados por meio de métodos.
+Isso ajuda a manter a integridade e segurança dos dados, evitando modificações indevidas.
+
+## 🔍 O que é **Encapsulamento**?
+
+O encapsulamento é a prática de **esconder detalhes internos** de um objeto e fornecer uma interface segura para interação. Isso é feito definindo os atributos como **privados** e fornecendo métodos públicos para acessá-los e modificá-los (**getters** e **setters**).
+
+### 📌 Benefícios do Encapsulamento:
+- Protege os dados de acessos indevidos.
+- Mantém a integridade do objeto.
+- Facilita a manutenção e modificação do código.
+- Permite controlar as regras de acesso e modificação dos atributos.
+
+### 📖 Analogias para entender melhor
+
+Imagine um **cofre** onde você guarda dinheiro. O dinheiro (dado) está protegido dentro do cofre (objeto), e você só pode acessá-lo usando a chave correta (métodos). Ninguém pode pegar o dinheiro diretamente sem seguir as regras do cofre.
+
+Outro exemplo: pense em um **controle remoto**. Você pode aumentar ou diminuir o volume da TV pressionando botões (métodos), mas não pode modificar diretamente os circuitos internos da TV (dados protegidos).
+
+## 📌 Exemplo Técnico:
+
+Vamos ver um exemplo prático em **Java**:
 
 ```java
-class Gato {
-    private String nome;
-    private int idade;
+// Definição da classe ContaBancaria
+class ContaBancaria {
+    // Atributos privados (Encapsulamento)
+    private String titular;
+    private double saldo;
 
-    // Construtor
-    public Gato(String nome, int idade) {
-        this.nome = nome;
-        this.idade = idade;
+    // Construtor para inicializar os valores
+    public ContaBancaria(String titular, double saldoInicial) {
+        this.titular = titular;
+        this.saldo = saldoInicial;
     }
 
-    // Métodos getters e setters
-    public String getNome() {
-        return nome;
+    // Método getter para obter o saldo
+    public double getSaldo() {
+        return saldo;
     }
-    
-    public void setNome(String nome) {
-        this.nome = nome;
+
+    // Método para depositar dinheiro (modifica saldo com regras)
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Depósito de R$" + valor + " realizado com sucesso.");
+        } else {
+            System.out.println("Valor de depósito inválido!");
+        }
     }
-    
-    public int getIdade() {
-        return idade;
-    }
-    
-    public void setIdade(int idade) {
-        if (idade > 0) {
-            this.idade = idade;
+
+    // Método para sacar dinheiro (modifica saldo com validação)
+    public void sacar(double valor) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+            System.out.println("Saque de R$" + valor + " realizado com sucesso.");
+        } else {
+            System.out.println("Saldo insuficiente ou valor inválido!");
         }
     }
 }
 
+// Classe principal para testar o encapsulamento
 public class Main {
     public static void main(String[] args) {
-        Gato meuGato = new Gato("Mia", 2);
-        System.out.println("Nome: " + meuGato.getNome());
-        System.out.println("Idade: " + meuGato.getIdade());
+        // Criando um objeto da classe ContaBancaria
+        ContaBancaria minhaConta = new ContaBancaria("João", 1000.00);
+        
+        // Consultando o saldo via método getter
+        System.out.println("Saldo atual: R$" + minhaConta.getSaldo());
+        
+        // Tentando depositar um valor
+        minhaConta.depositar(500.00);
+        System.out.println("Saldo atual: R$" + minhaConta.getSaldo());
+        
+        // Tentando sacar um valor
+        minhaConta.sacar(300.00);
+        System.out.println("Saldo atual: R$" + minhaConta.getSaldo());
+        
+        // Tentativa de saque maior que o saldo
+        minhaConta.sacar(2000.00);
     }
 }
 ```
 
-🔍 **Explicação:**
-- `nome` e `idade` são privados (`private`), protegendo o acesso direto.
-- Criamos métodos `get` e `set` para manipular os atributos de forma controlada.
-- O construtor inicializa os valores ao criar um objeto da classe `Gato`.
+### 🔍 Explicação do Código:
+1. Criamos a classe `ContaBancaria` com os atributos `titular` e `saldo` **privados**, garantindo que só possam ser acessados por métodos específicos.
+2. Implementamos um **construtor** para inicializar a conta com um saldo inicial.
+3. Criamos um **getter** (`getSaldo()`) para permitir a consulta do saldo.
+4. Criamos um método `depositar(double valor)`, que adiciona dinheiro ao saldo, mas apenas se o valor for positivo.
+5. Criamos um método `sacar(double valor)`, que permite retirar dinheiro da conta **apenas se houver saldo suficiente**.
+6. No `main`, instanciamos um objeto `minhaConta`, realizamos depósitos, saques e tentamos fazer um saque maior que o saldo disponível para ver como o encapsulamento protege os dados.
+
+### 📌 Saída do Código:
+
+```
+Saldo atual: R$1000.0
+Depósito de R$500.0 realizado com sucesso.
+Saldo atual: R$1500.0
+Saque de R$300.0 realizado com sucesso.
+Saldo atual: R$1200.0
+Saldo insuficiente ou valor inválido!
+```
+
+### 🔎 O que aprendemos?
+- **Os atributos estão protegidos** e não podem ser modificados diretamente.
+- **Os métodos controlam o acesso aos dados**, garantindo que apenas operações válidas sejam realizadas.
+- **O encapsulamento protege a integridade do objeto**, impedindo mudanças indesejadas nos atributos.
+
+Dessa forma, **o encapsulamento melhora a segurança e organização do código, facilitando a manutenção e prevenção de erros.** 🚀
+
+
 
 ---
 ### 3️⃣ Herança
