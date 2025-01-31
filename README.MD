@@ -11,7 +11,7 @@ Uma classe é como uma **receita** ou **molde** que define as características e
 
 #### Exemplo do Mundo Real:
 
-<li>Pense em uma classe **Animal**. Ela descreve que todo animal tem um **nome**, **idade** e pode **emitirSom()**.</li>
+Pense em uma classe **Animal**. Ela descreve que todo animal tem um **nome**, **idade** e pode **emitirSom()**.
 
 📌 **Exemplo:** Pense em uma **classe "Animal"**. Todos os animais de estimação compartilham características comuns (nome, idade, som) e comportamentos (emitir som). Cada cachorro ou gato específico é um **objeto** dessa classe.
 
