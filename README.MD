@@ -6,7 +6,12 @@ Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada
 
 ### Classes e Objetos
 
-Na POO, **classes** são modelos que definem as características e comportamentos de um objeto. Já os **objetos** são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo da classe.
+Em POO **classes** são modelos que definem as características e comportamentos de um objeto. Já os **objetos** são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo da classe.
+Uma classe é como uma **receita** ou **molde** que define as características e comportamentos de algo.
+
+#### Exemplo do Mundo Real:
+
+<li>Pense em uma classe **Animal**. Ela descreve que todo animal tem um **nome**, **idade** e pode **emitirSom()**.</li>
 
 📌 **Exemplo:** Pense em uma **classe "Animal"**. Todos os animais de estimação compartilham características comuns (nome, idade, som) e comportamentos (emitir som). Cada cachorro ou gato específico é um **objeto** dessa classe.
 
@@ -17,7 +22,7 @@ class Animal {
     int idade;
 
     // Método para exibir informações do animal
-    void exibirInfo() {
+    void Result() {
         System.out.println("Nome: " + nome + ", Idade: " + idade + " anos");
     }
 }
@@ -31,15 +36,16 @@ public class Main {
         pet.idade = 3;
         
         // Chamando método do objeto
-        pet.exibirInfo();
+        pet.Result();
     }
 }
 ```
 
 🔍 **Explicação:**
 - Criamos a classe `Animal` com atributos `nome` e `idade`.
-- Criamos um método `exibirInfo()` para exibir os dados do animal.
+- Criamos um método `Resultado()` para exibir os dados do animal.
 - No `main`, instanciamos um objeto `pet` da classe `Animal`, definimos seus atributos e chamamos o método para exibir suas informações.
+- O objeto dessa classe é um **pet** chamado Rex com 3 anos de idade.
 
 ---
 ### 2️⃣ Encapsulamento
