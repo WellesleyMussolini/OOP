@@ -93,8 +93,6 @@ Outro exemplo: pense em um **controle remoto**. Você pode aumentar ou diminuir 
 
 ## 📌 Exemplo Técnico:
 
-Vamos ver um exemplo prático em **Java**:
-
 ```java
 // Definição da classe ContaBancaria
 class ContaBancaria {
