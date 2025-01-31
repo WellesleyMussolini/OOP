@@ -4,25 +4,31 @@ Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada
 
 ## 📌 Conceitos Abordados
 
-### Classes e Objetos
+Classes e Objetos
 
-Em POO **classes** são modelos que definem as características e comportamentos de um objeto. Já os **objetos** são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo da classe.
-Uma classe é como uma **receita** ou **molde** que define as características e comportamentos de algo.
+Em **POO** classes são modelos que definem as características e comportamentos de um objeto. Já os objetos são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo da classe.
 
-#### Exemplo do Mundo Real:
+Uma classe é uma estrutura que agrupa atributos (dados) e métodos (comportamentos) relacionados a um conceito.
+Um objeto é uma instância de uma classe, ou seja, uma ocorrência específica que possui os atributos e comportamentos definidos na classe.
 
-Pense em uma classe **Animal**. Ela descreve que todo animal tem um **nome**, **idade** e pode **emitirSom()**.
+Pense em uma classe como uma receita de bolo. A receita contém todas as instruções e ingredientes necessários para fazer um bolo, mas ela por si só não é um bolo real.
+Agora, quando você segue a receita e assa um bolo, você cria um objeto, que é um bolo real baseado nessa receita.
 
-📌 **Exemplo:** Pense em uma **classe "Animal"**. Todos os animais de estimação compartilham características comuns (nome, idade, som) e comportamentos (emitir som). Cada cachorro ou gato específico é um **objeto** dessa classe.
+Outro exemplo: Imagine que temos uma classe **"Animal"**. Essa classe define que todo animal tem um nome e uma idade. Mas um animal específico, como um cachorro chamado **"Rex"**, seria um objeto dessa classe.
 
-```java
+Se tivermos um segundo cachorro chamado **"Bolt"**, ele também seria um objeto da classe "Animal", com seu próprio nome e idade, mas ainda seguindo o mesmo modelo da classe.
+
+Resumindo a ideia principal de classes e objetos: a classe define o modelo e os objetos são as instâncias concretas desse modelo.
+
+📌 Exemplo Técnico:
+
 // Definição da classe Animal
 class Animal {
     String nome;
     int idade;
 
     // Método para exibir informações do animal
-    void Result() {
+    void exibirInformacoes() {
         System.out.println("Nome: " + nome + ", Idade: " + idade + " anos");
     }
 }
@@ -31,21 +37,29 @@ class Animal {
 public class Main {
     public static void main(String[] args) {
         // Criando um objeto da classe Animal
-        Animal pet = new Animal();
-        pet.nome = "Rex";
-        pet.idade = 3;
+        Animal pet = new Animal(); // Aqui criamos um objeto chamado "pet"
+        pet.nome = "Rex"; // Definimos o nome do pet
+        pet.idade = 3; // Definimos a idade do pet
         
-        // Chamando método do objeto
-        pet.Result();
+        // Chamando o método para exibir as informações do animal
+        pet.exibirInformacoes();
     }
 }
-```
 
-🔍 **Explicação:**
-- Criamos a classe `Animal` com atributos `nome` e `idade`.
-- Criamos um método `Resultado()` para exibir os dados do animal.
-- No `main`, instanciamos um objeto `pet` da classe `Animal`, definimos seus atributos e chamamos o método para exibir suas informações.
-- O objeto dessa classe é um **pet** chamado Rex com 3 anos de idade.
+🔍 Explicação do Código:
+
+Criamos a classe Animal com atributos nome e idade.
+
+Criamos um método exibirInformacoes() que imprime os detalhes do animal.
+
+No método main, instanciamos um objeto pet da classe Animal, definimos seus atributos e chamamos o método para exibir suas informações.
+
+O objeto dessa classe é um pet chamado "Rex" com 3 anos de idade.
+
+📌 Saída do Código:
+
+Nome: Rex, Idade: 3 anos
+
 
 ---
 ### 2️⃣ Encapsulamento
