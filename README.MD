@@ -12,7 +12,7 @@ Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada
 
 # Classes e Objetos
 
-Em **POO** (Programação Orientada a Objetos), classes são modelos que definem as características (**estado**) e comportamentos (**métodos**) de um objeto. Os objetos por sua vez são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo definido pela classe.
+Em **POO** (Programação Orientada a Objetos), classes são modelos que definem as características (**estado**) e **métodos** de um objeto. Os objetos por sua vez são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo definido pela classe.
 
 ### O que são **estados** e **métodos** de um objeto?
 
@@ -57,6 +57,12 @@ public class Main {
 }
 ```
 
+### 📌 Saída do Código:
+
+```
+Nome: Rex, Idade: 3 anos
+```
+
 ### 🔍 Explicação do Código:
 
 1. Criamos a classe `Animal` com dois atributos: `nome` e `idade` (**estado**).
@@ -65,11 +71,7 @@ public class Main {
 4. Atribuímos valores ao estado do objeto (`nome` e `idade`).
 5. Chamamos o método `exibirInformacoes()`, que imprime os detalhes do animal.
 
-### 📌 Saída do Código:
 
-```
-Nome: Rex, Idade: 3 anos
-```
 
 Dessa forma, podemos entender claramente que os objetos têm um **estado** (valores específicos dos atributos) e um **comportamento** (métodos que definem suas ações).
 
