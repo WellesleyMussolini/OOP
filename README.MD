@@ -14,12 +14,10 @@ Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada
 
 Em **POO** (Programação Orientada a Objetos), classes são modelos que definem as características (**estado**) e **métodos** de um objeto. Os objetos por sua vez são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo definido pela classe.
 
-### O que são **estados** e **métodos** de um objeto?
+## 🔍 O que são **estados** e **métodos** de um objeto?
 
 - **Estado**: Representa os atributos ou dados do objeto. São as informações que descrevem o objeto em um determinado momento.
 - **Métodos**: Representa as ações ou métodos que o objeto pode executar, definindo como ele interage com outros objetos ou altera seu próprio estado.
-
-### Analogias para facilitar o entendimento
 
 Pense em uma classe como uma **receita de bolo**. A receita contém todos os ingredientes e instruções necessárias para fazer um bolo, mas por si só não é um bolo real. Já o bolo pronto é um **objeto**, ou seja, uma instância concreta daquela receita.
 
