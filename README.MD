@@ -165,9 +165,6 @@ Temperatura fora do limite permitido!
 - **O encapsulamento melhora a segurança e controle dos dados**, garantindo que apenas operações seguras sejam realizadas.  
 
 ---
-Aqui está o texto formatado para o seu README sobre **Herança** seguindo o mesmo padrão:
-
----
 
 # 🏛️ Herança
 
