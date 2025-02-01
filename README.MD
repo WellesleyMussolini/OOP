@@ -1,6 +1,14 @@
-# Programação Orientada a Objetos (POO) 🚀
+# Programação Orientada a Objetos (POO)
 
 Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada a Objetos (POO)**. Aqui, explico de forma simples e intuitiva os principais conceitos da POO com exemplos práticos em **Java**, utilizando apenas **animais de estimação** como exemplo para facilitar o entendimento.
+
+## Sumário
+
+1. [Classes e Objetos](#classes-e-objetos)
+2. [Encapsulamento](#encapsulamento)
+3. [Herança](#heranca)
+4. [Polimorfismo](#polimorfismo)
+5. [Interfaces](#interfaces)
 
 # Classes e Objetos
 
