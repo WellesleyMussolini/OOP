@@ -1,127 +1,99 @@
 # Programação Orientada a Objetos (POO)
 
-Este repositório é dedicado ao meu aprendizado sobre **Programação Orientada a Objetos (POO)**. Aqui, explico de forma simples e intuitiva os principais conceitos da POO com exemplos práticos em **Java**, utilizando apenas **animais de estimação** como exemplo para facilitar o entendimento.
+Este repositório reúne conceitos fundamentais da **Programação Orientada a Objetos (POO)**, apresentados de forma simples e intuitiva com exemplos práticos em **Java**. Para facilitar o entendimento.
 
 ## Sumário
 
 1. [Classes e Objetos](#classes-e-objetos)
 2. [Encapsulamento](#encapsulamento)
-3. [Herança](#heranca)
-4. [Polimorfismo](#polimorfismo)
-5. [Interfaces](#interfaces)
+3. [Herança](#herança)
+4. [Abstração](#abstração)
+5. [Polimorfismo](#polimorfismo)
+6. [Interfaces](#interfaces)
+7. [Conclusão](#conclusão)
 
-# Classes e Objetos
+---
 
-Em **POO** (Programação Orientada a Objetos), classes são modelos que definem as características (**estado**) e **métodos** de um objeto. Os objetos por sua vez são instâncias dessas classes, ou seja, representam entidades específicas baseadas no modelo definido pela classe.
+## 1. Classes e Objetos
 
-## 🔍 O que são **estados** e **métodos** de um objeto?
+Em **POO**, **classes** são modelos que definem as características (**estado**) e os comportamentos (**métodos**) de um objeto. Um **objeto** é uma instância de uma classe, ou seja, uma ocorrência específica que possui os atributos e comportamentos definidos na classe.
 
-- **Estado**: Representa os atributos ou dados do objeto. São as informações que descrevem o objeto em um determinado momento.
-- **Métodos**: Representa as ações ou métodos que o objeto pode executar, definindo como ele interage com outros objetos ou altera seu próprio estado.
+### Conceitos Básicos
 
-Pense em uma classe como uma **receita de bolo**. A receita contém todos os ingredientes e instruções necessárias para fazer um bolo, mas por si só não é um bolo real. Já o bolo pronto é um **objeto**, ou seja, uma instância concreta daquela receita.
+- **Estado**: Conjunto de atributos (dados) que descrevem o objeto em um determinado momento.
+- **Métodos**: Conjunto de ações (funções) que o objeto pode executar para interagir ou alterar seu estado.
 
-Outro exemplo: Imagine uma classe **"Animal"**. Essa classe define que todo animal tem um **nome** e uma **idade** (estado) e pode realizar ações como **exibir suas informações** (método).
+### Analogias
 
-Se tivermos um cachorro chamado **"Rex"**, ele seria um objeto da classe "Animal". Ele tem seu próprio nome e idade (estado) e pode realizar ações definidas na classe, como exibir suas informações (método). Outro cachorro chamado **"Bolt"** seria outro objeto da mesma classe, mas com um estado diferente.
+- **Receita de Bolo**: A classe é a receita, que contém os ingredientes (atributos) e o modo de preparo (métodos). O bolo assado é o objeto, ou seja, uma instância real da receita.
+- **Animal**: Imagine uma classe `Animal` que define que todo animal tem um nome e uma idade. Um cachorro chamado "Rex" é um objeto dessa classe, possuindo seus próprios valores para os atributos.
 
-### 📌 Exemplo Técnico:
+### Exemplo Prático
 
 ```java
 // Definição da classe Animal
 class Animal {
     String nome; // Estado: nome do animal
-    int idade;  // Estado: idade do animal
+    int idade;   // Estado: idade do animal
 
-    // Método para exibir informações do animal
+    // Método: exibe informações do animal
     void exibirInformacoes() {
         System.out.println("Nome: " + nome + ", Idade: " + idade + " anos");
     }
 }
 
-// Classe principal
+// Classe principal para testar a classe Animal
 public class Main {
     public static void main(String[] args) {
-        // Criando um objeto da classe Animal
-        Animal pet = new Animal(); // Instância da classe "Animal"
-        
-        // Definindo o estado do objeto
-        pet.nome = "Rex";
+        Animal pet = new Animal(); // Criação do objeto (instância da classe Animal)
+        pet.nome = "Rex";          // Definindo o estado do objeto
         pet.idade = 3;
         
-        // Executando um método do objeto
-        pet.exibirInformacoes();
+        pet.exibirInformacoes();   // Executando um método (comportamento)
     }
 }
 ```
 
-### 📌 Saída do Código:
-
+**Saída do Código:**
 ```
 Nome: Rex, Idade: 3 anos
 ```
 
-### 🔍 Explicação do Código:
-
-1. Criamos a classe `Animal` com dois atributos: `nome` e `idade` (**estado**).
-2. Definimos um método `exibirInformacoes()`, que exibe o nome e a idade do animal.
-3. No método `main`, instanciamos um objeto `pet` da classe `Animal`.
-4. Atribuímos valores ao estado do objeto (`nome` e `idade`).
-5. Chamamos o método `exibirInformacoes()`, que imprime os detalhes do animal.
-
-
-
-Dessa forma, podemos entender claramente que os objetos têm um **estado** (valores específicos dos atributos) e um **comportamento** (métodos que definem suas ações).
-
-
-
-
 ---
-# Encapsulamento
 
-Em **POO** **encapsulamento** é um dos princípios fundamentais que protege os dados de um objeto, restringindo o acesso direto aos seus atributos e permitindo que sejam manipulados apenas através de métodos controlados.
+## 2. Encapsulamento
 
-Isso ajuda a manter a integridade e segurança dos dados, evitando modificações indevidas.
+O **encapsulamento** é o princípio que protege os dados internos de um objeto, restringindo o acesso direto aos seus atributos e permitindo manipulações somente por meio de métodos controlados (getters e setters). Isso mantém a integridade e a segurança dos dados.
 
-## 🔍 O que é **Encapsulamento**?
+### Benefícios
 
-O encapsulamento é a prática de **esconder detalhes internos** de um objeto e fornecer uma interface segura para interação. Isso é feito definindo os atributos como **privados** e fornecendo métodos públicos para acessá-los e modificá-los (**getters** e **setters**).
-
-### 📌 Benefícios do Encapsulamento:
 - Protege os dados de acessos indevidos.
-- Mantém a integridade do objeto.
-- Facilita a manutenção e modificação do código.
+- Facilita a manutenção e a modificação do código.
 - Permite controlar as regras de acesso e modificação dos atributos.
 
-### 📖 Analogias para entender melhor
+### Analogia
 
-Imagine um **cofre** onde você guarda dinheiro. O dinheiro (dado) está protegido dentro do cofre (objeto), e você só pode acessá-lo usando a chave correta (métodos). Ninguém pode pegar o dinheiro diretamente sem seguir as regras do cofre.
+Imagine um **cofre**: o dinheiro está protegido e só pode ser acessado com a chave certa (métodos), evitando que qualquer um acesse diretamente o conteúdo.
 
-Outro exemplo: pense em um **controle remoto**. Você pode aumentar ou diminuir o volume da TV pressionando botões (métodos), mas não pode modificar diretamente os circuitos internos da TV (dados protegidos).
-
-Aqui está o texto formatado para o seu README:  
-
----
-
-### 📌 Exemplo Técnico: Encapsulamento em um Sistema de Controle de Temperatura  
+### Exemplo Prático
 
 ```java
-// Classe ControladorDeTemperatura
+// Classe que exemplifica o encapsulamento
 class ControladorDeTemperatura {
-    // Atributo privado (Encapsulamento)
+    // Atributo privado, não acessível diretamente
     private double temperatura;
 
-    // Construtor para definir uma temperatura inicial
+    // Construtor que define uma temperatura inicial
     public ControladorDeTemperatura(double temperaturaInicial) {
         this.temperatura = temperaturaInicial;
     }
 
-    // Método getter para obter a temperatura atual
+    // Getter para consultar a temperatura
     public double getTemperatura() {
         return temperatura;
     }
 
-    // Método setter para definir a temperatura (com validação)
+    // Setter para alterar a temperatura, com validação
     public void setTemperatura(double novaTemperatura) {
         if (novaTemperatura >= -50 && novaTemperatura <= 100) {
             this.temperatura = novaTemperatura;
@@ -135,71 +107,37 @@ class ControladorDeTemperatura {
 // Classe principal para testar o encapsulamento
 public class Main {
     public static void main(String[] args) {
-        // Criando um objeto da classe ControladorDeTemperatura
         ControladorDeTemperatura sensor = new ControladorDeTemperatura(22.5);
-        
-        // Consultando a temperatura atual
         System.out.println("Temperatura atual: " + sensor.getTemperatura() + "°C");
-        
-        // Ajustando a temperatura para um valor válido
-        sensor.setTemperatura(30.0);
-        
-        // Tentando definir uma temperatura inválida
-        sensor.setTemperatura(150.0);
+        sensor.setTemperatura(30.0);  // Valor válido
+        sensor.setTemperatura(150.0); // Valor inválido
     }
 }
 ```
 
-## 🔍 Explicação do Código  
-
-1. Criamos a classe `ControladorDeTemperatura` com um atributo **privado** `temperatura`, impedindo acesso direto a ele.  
-2. Criamos um **construtor** para definir um valor inicial de temperatura.  
-3. Criamos um **getter** (`getTemperatura()`) para permitir a consulta da temperatura.  
-4. Criamos um **setter** (`setTemperatura()`) para alterar a temperatura **com uma validação** que impede valores fora do intervalo permitido (-50°C a 100°C).  
-5. No `main`, criamos um objeto `sensor`, consultamos a temperatura, ajustamos para um valor válido e testamos um valor inválido.  
-
-## 📌 Saída do Código  
-
+**Saída do Código:**
 ```
 Temperatura atual: 22.5°C  
 Temperatura ajustada para: 30.0°C  
-Temperatura fora do limite permitido!  
+Temperatura fora do limite permitido!
 ```
 
-## 🔎 O que aprendemos?  
-
-- **O atributo `temperatura` está encapsulado**, protegendo-o de alterações externas indevidas.  
-- **O método `setTemperatura()` garante que só valores válidos sejam atribuídos**, evitando falhas no sistema.  
-- **O encapsulamento melhora a segurança e controle dos dados**, garantindo que apenas operações seguras sejam realizadas.  
-
 ---
 
-# 🏛️ Herança
+## 3. Herança
 
-Em **POO**, a **herança** é um princípio que permite que uma classe (subclasse) herde atributos e métodos de outra classe (superclasse). Isso promove **reutilização de código** e facilita a organização e manutenção do sistema.
+A **herança** permite que uma classe (subclasse) herde atributos e métodos de outra classe (superclasse), promovendo a reutilização de código e a organização hierárquica.
 
-## 🔍 O que é **Herança**?
+### Benefícios
 
-A herança é um mecanismo que permite a criação de novas classes baseadas em classes existentes. A **classe filha** herda atributos e comportamentos da **classe pai**, podendo reutilizá-los, modificá-los ou adicionar novos.
+- Evita duplicação de código.
+- Facilita a manutenção, pois alterações na superclasse são refletidas nas subclasses.
+- Permite a criação de hierarquias organizadas.
 
-### 📌 Benefícios da Herança:
-- **Reutilização de código**: evita duplicação de código, tornando o sistema mais eficiente.
-- **Facilita a manutenção**: mudanças na superclasse são refletidas nas subclasses.
-- **Promove hierarquia e organização**: classes mais genéricas servem como base para classes mais específicas.
-- **Permite polimorfismo**: possibilita que objetos da subclasse sejam tratados como objetos da superclasse.
-
-### 📖 Analogias para entender melhor
-
-Imagine um **carro elétrico**. Ele herda características de um **carro comum** (rodas, volante, portas), mas pode ter novas funcionalidades, como um motor elétrico.
-
-Outro exemplo: pense em uma **árvore genealógica**. Uma pessoa herda características dos seus pais, mas também pode ter atributos únicos que a diferenciam.
-
----
-
-### 📌 Exemplo Técnico: Herança em um Sistema de Pets  
+### Exemplo Prático
 
 ```java
-// Classe base (superclasse)
+// Superclasse Animal
 class Animal {
     protected String nome;
     protected int idade;
@@ -215,18 +153,18 @@ class Animal {
     }
 }
 
-// Classe derivada (subclasse) que herda de Animal
+// Subclasse Cachorro que herda de Animal
 class Cachorro extends Animal {
     private String raca;
 
     public Cachorro(String nome, int idade, String raca) {
-        super(nome, idade); // Chama o construtor da superclasse
+        super(nome, idade); // Invoca o construtor da superclasse
         this.raca = raca;
     }
 
     @Override
     public void exibirDados() {
-        super.exibirDados(); // Reutiliza método da superclasse
+        super.exibirDados(); // Reaproveita o método da superclasse
         System.out.println("Raça: " + raca);
     }
 }
@@ -246,16 +184,7 @@ public class Main {
 }
 ```
 
-## 🔍 Explicação do Código  
-
-1. Criamos a **classe `Animal`** (superclasse), que contém atributos comuns como `nome` e `idade`.
-2. Criamos a **classe `Cachorro`** (subclasse), que **herda** de `Animal` e adiciona um novo atributo `raca`.
-3. No **construtor da subclasse**, usamos `super(nome, idade)` para chamar o construtor da superclasse.
-4. Sobrescrevemos (`@Override`) o método `exibirDados()` na subclasse para incluir a raça do cachorro.
-5. No `main`, criamos um objeto da superclasse (`Animal`) e um da subclasse (`Cachorro`) e chamamos `exibirDados()` para ambos.
-
-## 👉 Saída do Código  
-
+**Saída do Código:**
 ```
 Dados do Animal:
 Nome: Bicho
@@ -267,49 +196,22 @@ Idade: 3 anos
 Raça: Labrador
 ```
 
-## 🔎 O que aprendemos?  
-
-- **A classe `Cachorro` herda os atributos e métodos de `Animal`**, reutilizando código.  
-- **A palavra-chave `super` permite acessar métodos da superclasse** dentro da subclasse.  
-- **Podemos sobrescrever métodos (`@Override`) para personalizar o comportamento da subclasse**.  
-- **Herança permite criar hierarquias organizadas e reutilizar código eficientemente**. 🚀
-
-
-
 ---
 
+## 4. Abstração
 
-# Abstração  
+A **abstração** consiste em ocultar detalhes de implementação e fornecer somente as funcionalidades essenciais. Isso permite definir classes e métodos que servem de modelo, sem precisar especificar todos os detalhes.
 
-A **Abstração** é um dos pilares da **Programação Orientada a Objetos (POO)** e consiste em **ocultar detalhes de implementação** e **fornecer apenas funcionalidades essenciais**.  
+### Benefícios
 
-Ela permite que os objetos sejam representados de forma mais genérica, focando no que é relevante para a aplicação e deixando os detalhes internos escondidos.  
+- Reduz a complexidade do código.
+- Separa a lógica de implementação dos detalhes internos.
+- Facilita a manutenção e a expansão do sistema.
 
-## 🔍 O que é **Abstração**?  
-
-A abstração permite definir **classes genéricas** que representam um conceito, sem se preocupar com os detalhes específicos de cada implementação.  
-
-Isso é feito por meio de **classes abstratas** e **métodos abstratos**, que servem como um modelo para outras classes.  
-
-### 📌 Benefícios da Abstração:  
-
-- Reduz a complexidade do código.  
-- Facilita a reutilização e manutenção.  
-- Separa a lógica de implementação dos detalhes internos.  
-- Permite criar sistemas mais flexíveis e organizados.  
-
-### 📖 Analogias para entender melhor  
-
-Imagine uma **rede social para pets**. Você pode visualizar um perfil, curtir fotos e ver informações básicas, mas **não sabe** como os dados são armazenados ou processados internamente.  
-
-Outro exemplo: pense em um **controle de videogame**. Você aperta um botão para pular, mas não precisa saber como os circuitos internos processam esse comando.  
-
----
-
-# 📌 Exemplo Técnico: Abstração em um Sistema de Pets  
+### Exemplo Prático
 
 ```java
-// Classe abstrata Pet
+// Classe abstrata que serve como modelo para pets
 abstract class Pet {
     protected String nome;
     protected int idade;
@@ -319,17 +221,17 @@ abstract class Pet {
         this.idade = idade;
     }
 
-    // Método abstrato (deve ser implementado pelas subclasses)
+    // Método abstrato: não possui implementação na classe Pet
     public abstract void fazerSom();
 
-    // Método concreto (compartilhado por todas as subclasses)
+    // Método concreto: implementado na classe abstrata e herdado pelas subclasses
     public void exibirInfo() {
         System.out.println("Nome: " + nome);
         System.out.println("Idade: " + idade + " anos");
     }
 }
 
-// Classe Cachorro herda de Pet e implementa o método abstrato
+// Subclasse Cachorro que implementa o método abstrato
 class Cachorro extends Pet {
     public Cachorro(String nome, int idade) {
         super(nome, idade);
@@ -341,7 +243,7 @@ class Cachorro extends Pet {
     }
 }
 
-// Classe Gato herda de Pet e implementa o método abstrato
+// Subclasse Gato que implementa o método abstrato
 class Gato extends Pet {
     public Gato(String nome, int idade) {
         super(nome, idade);
@@ -356,11 +258,9 @@ class Gato extends Pet {
 // Classe principal para testar a abstração
 public class Main {
     public static void main(String[] args) {
-        // Criando objetos das subclasses
         Pet cachorro = new Cachorro("Rex", 5);
         Pet gato = new Gato("Mia", 3);
 
-        // Exibindo informações e sons dos pets
         cachorro.exibirInfo();
         cachorro.fazerSom();
 
@@ -372,19 +272,7 @@ public class Main {
 }
 ```
 
----
-
-## 🔍 Explicação do Código  
-
-1. Criamos uma **classe abstrata `Pet`**, que serve como um modelo para todos os pets.  
-2. Definimos um **método abstrato `fazerSom()`**, que **não tem implementação na classe `Pet`** e deve ser implementado nas subclasses.  
-3. Criamos as classes `Cachorro` e `Gato`, que **herdam de `Pet` e implementam `fazerSom()` com sons diferentes**.  
-4. No `main`, criamos objetos de `Cachorro` e `Gato`, chamamos `exibirInfo()` e `fazerSom()` para demonstrar a abstração.  
-
----
-
-## 📌 Saída do Código  
-
+**Saída do Código:**
 ```
 Nome: Rex  
 Idade: 5 anos  
@@ -392,46 +280,31 @@ Rex diz: Au Au! 🐶
 
 Nome: Mia  
 Idade: 3 anos  
-Mia diz: Miau! 🐱  
+Mia diz: Miau! 🐱
 ```
 
 ---
 
-## 🔎 O que aprendemos?  
+## 5. Polimorfismo
 
-- **A classe `Pet` é abstrata**, pois representa um conceito genérico.  
-- **O método `fazerSom()` é abstrato**, forçando cada pet a ter seu próprio som.  
-- **A abstração permite definir uma estrutura comum** sem precisar detalhar a implementação na superclasse.  
-- **Isso torna o código mais organizado, reutilizável e fácil de expandir** (podemos adicionar novos pets sem modificar o código existente). 🚀  
+O **polimorfismo** permite que métodos com o mesmo nome tenham comportamentos diferentes, dependendo do objeto que os invoca. Essa característica torna o código mais flexível e extensível.
 
----
+### Tipos de Polimorfismo
 
-# 🏆 Polimorfismo  
+1. **Sobrescrita (Override):** Uma subclasse redefine o comportamento de um método herdado da superclasse.  
+2. **Sobrecarga (Overload):** Métodos com o mesmo nome, mas com diferentes parâmetros, dentro de uma mesma classe.
 
-O **Polimorfismo** é um dos pilares da **Programação Orientada a Objetos (POO)** e permite que um mesmo método tenha **diferentes comportamentos** dependendo do objeto que o invoca.  
-
-Isso torna o código mais flexível, reutilizável e fácil de manter.  
-
-## 🔍 O que é **Polimorfismo**?  
-
-Polimorfismo significa **"muitas formas"**. Ele permite que um mesmo método seja utilizado por diferentes classes, podendo ser de duas formas:  
-
-1. **Polimorfismo de Sobrescrita (Override)** – Quando uma **subclasse modifica** o comportamento de um método herdado da superclasse.  
-2. **Polimorfismo de Sobrecarga (Overload)** – Quando há **métodos com o mesmo nome**, mas com parâmetros diferentes dentro da mesma classe.  
-
----
-
-## 📌 Exemplo Técnico: Polimorfismo com Animais  
+### Exemplo Prático (Sobrescrita)
 
 ```java
-// Classe base (superclasse)
+// Superclasse Animal
 class Animal {
     public void fazerSom() {
         System.out.println("O animal faz um som.");
     }
 }
 
-// Classe derivada (subclasse) - Polimorfismo por Sobrescrita
+// Subclasse Cachorro sobrescrevendo o método
 class Cachorro extends Animal {
     @Override
     public void fazerSom() {
@@ -439,7 +312,7 @@ class Cachorro extends Animal {
     }
 }
 
-// Outra subclasse - Polimorfismo por Sobrescrita
+// Subclasse Gato sobrescrevendo o método
 class Gato extends Animal {
     @Override
     public void fazerSom() {
@@ -447,7 +320,7 @@ class Gato extends Animal {
     }
 }
 
-// Classe principal
+// Classe principal para testar o polimorfismo
 public class Main {
     public static void main(String[] args) {
         Animal meuAnimal1 = new Cachorro();
@@ -459,41 +332,30 @@ public class Main {
 }
 ```
 
-## 📌 Saída do Código  
-
+**Saída do Código:**
 ```
-O cachorro late: Au Au!  
-O gato mia: Miau!  
+O cachorro late: Au Au!
+O gato mia: Miau!
 ```
-
-### ✅ O que aprendemos?  
-
-✔ **A classe `Animal` define um método genérico `fazerSom()`.**  
-✔ **As subclasses `Cachorro` e `Gato` sobrescrevem esse método com seu próprio comportamento.**  
-✔ **Isso permite que possamos chamar `fazerSom()` em qualquer `Animal`, sem precisar saber qual tipo específico ele é.**  
 
 ---
 
-# 🎭 Interfaces  
+## 6. Interfaces
 
-As **interfaces** são contratos que definem **quais métodos** uma classe deve implementar, sem fornecer uma implementação concreta.  
+**Interfaces** são contratos que definem quais métodos uma classe deve implementar, sem fornecer uma implementação concreta. Elas garantem que diferentes classes sigam um padrão comum.
 
-Isso ajuda a garantir que diferentes classes sigam um **padrão comum**, promovendo reutilização e flexibilidade no código.  
+### Benefícios
 
-## 🔍 O que é uma **Interface**?  
+- Padronizam a comunicação entre classes.
+- Permitem que classes não relacionadas implementem os mesmos métodos, facilitando a interoperabilidade.
+- Promovem a flexibilidade e a reutilização do código.
 
-Uma interface contém **apenas a assinatura dos métodos**, sem definir como eles devem ser implementados.  
-
-As classes que **"assinam o contrato"** (implementam a interface) **devem fornecer suas próprias implementações**.  
-
----
-
-## 📌 Exemplo Técnico: Interface para Animais  
+### Exemplo Prático
 
 ```java
-// Definição da interface
+// Definição da interface Animal
 interface Animal {
-    void fazerSom(); // Método sem implementação (obrigatório nas classes que implementam)
+    void fazerSom(); // Método sem implementação
 }
 
 // Classe Cachorro implementa a interface Animal
@@ -512,7 +374,7 @@ class Gato implements Animal {
     }
 }
 
-// Classe principal
+// Classe principal para testar a interface
 public class Main {
     public static void main(String[] args) {
         Animal meuAnimal1 = new Cachorro();
@@ -524,24 +386,20 @@ public class Main {
 }
 ```
 
-## 📌 Saída do Código  
-
+**Saída do Código:**
 ```
-O cachorro late: Au Au!  
-O gato mia: Miau!  
+O cachorro late: Au Au!
+O gato mia: Miau!
 ```
-
-### ✅ O que aprendemos?  
-
-✔ **A interface `Animal` define um contrato com o método `fazerSom()`.**  
-✔ **As classes `Cachorro` e `Gato` são obrigadas a implementar esse método.**  
-✔ **Podemos usar `Animal` como um tipo genérico, permitindo um código mais flexível.**  
 
 ---
 
-## 🚀 Conclusão  
+## 7. Resumo
 
-- **Polimorfismo** permite que um método tenha **diferentes comportamentos** dependendo da classe.  
-- **Interfaces** ajudam a padronizar métodos sem definir a implementação, garantindo que diferentes classes sigam um contrato comum.  
-- Ambos melhoram a **organização, flexibilidade e reutilização do código**! 🎯  
+- **Classes e Objetos:** Definem os modelos (classes) e suas instâncias (objetos) com estados e comportamentos.  
+- **Encapsulamento:** Protege os dados internos, permitindo o acesso seguro por meio de métodos.  
+- **Herança:** Permite a criação de hierarquias e a reutilização de código entre classes relacionadas.  
+- **Abstração:** Oculta os detalhes de implementação, focando nas funcionalidades essenciais.  
+- **Polimorfismo:** Permite métodos com o mesmo nome se comportarem de maneira diferente, conforme o objeto que os invoca.  
+- **Interfaces:** Estabelecem contratos que garantem a implementação de métodos padronizados, promovendo flexibilidade.
 
